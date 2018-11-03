@@ -1,0 +1,35 @@
+<app-nav-bar></app-nav-bar>
+
+<div ngClass="enteredInfoBox">
+  <h2 ngClass="header">
+    {{'Entered information' | translate}}
+  </h2>
+  <div ngClass="infoBox">
+    <span ngClass="labelField">{{'Name' | translate}}:</span>
+    <span ngClass="valueField">{{this.formValues.name}}</span>
+  </div>
+  <div ngClass="infoBox">
+    <span ngClass="labelField">{{'Password' | translate}}:</span>
+    <span ngClass="valueField">{{this.formValues.password}}</span>
+  </div>
+  <div ngClass="infoBox">
+    <span ngClass="labelField">{{'Age' | translate}}:</span>
+    <span ngClass="valueField">{{this.formValues.age}}</span>
+  </div>
+  <div ngClass="infoBox">
+    <span ngClass="labelField">{{'Date of birthday' | translate}}:</span>
+    <span ngClass="valueField">{{this.formValues.dateOfBirth}}</span>
+  </div>
+  <div ngClass="infoBox">
+    <span ngClass="labelField">{{'Date of login' | translate}}:</span>
+    <span ngClass="valueField">{{this.formValues.dateOfLogin}}</span>
+  </div>
+  <div ngClass="infoBox">
+    <span ngClass="labelField">{{'Date of notification' | translate}}:</span>
+    <span ngClass="valueField">{{this.formValues.dateOfNotification}}</span>
+  </div>
+  <div ngClass="infoBox">
+    <span ngClass="labelField">{{'Information' | translate}}:</span>
+    <span ngClass="valueField">{{this.formValues.information}}</span>
+  </div>
+</div>

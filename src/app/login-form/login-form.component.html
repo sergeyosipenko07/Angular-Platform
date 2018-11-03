@@ -1,0 +1,61 @@
+<form [formGroup]="loginForm" ngClass="loginForm">
+
+  <mat-form-field appearance="outline" hintLabel="{{'One or two words' | translate}}">
+    <mat-label>
+      {{'Enter your name' | translate}}
+    </mat-label>
+    <input matInput formControlName="name"
+           placeholder="{{'Enter your name' | translate}}" AUTOCOMPLETE="off"
+           ngClass="inputName">
+    <mat-error
+      *ngIf="loginForm.get('name').invalid && (loginForm.get('name').dirty || loginForm.get('name').touched)">
+      <mat-error
+        *ngIf="loginForm.get('name').errors['required']">
+        {{'Field can not be empty' | translate}}
+      </mat-error>
+      <mat-error *ngIf="loginForm.get('name').errors['incorrectName']">
+        {{'Incorrect name' | translate}}
+      </mat-error>
+    </mat-error>
+  </mat-form-field>
+  <mat-progress-bar mode="indeterminate" *ngIf="loginForm.get('name').pending"></mat-progress-bar>
+
+  <mat-form-field appearance="outline">
+    <mat-label>
+      {{'Enter your password' | translate}}
+    </mat-label>
+    <input type="password" matInput
+           formControlName="password"
+           placeholder="{{'Enter your password' | translate}}"
+           AUTOCOMPLETE="off">
+    <mat-error
+      *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
+      <mat-error
+        *ngIf="loginForm.get('password').errors['required']">
+        {{'Field can not be empty' | translate}}
+      </mat-error>
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary"
+          (click)="submitForm()" ngClass="submitButton">
+    {{'Log In btn' | translate}}
+  </button>
+  <br>
+  <button mat-stroked-button color="warn"
+          ngClass="forgotPasswordButton"
+          routerLink="/password">
+    {{'Forgot password btn' | translate}}
+  </button>
+</form>
+
+<div class="selectLanguage">
+  <mat-form-field>
+    <select matNativeControl (change)="switchLanguage($event)">
+      <option value="en">{{'English' | translate}}</option>
+      <option value="ru">{{'Russian' | translate}}</option>
+    </select>
+  </mat-form-field>
+</div>
+
+<app-loader [loader]="isLoading"></app-loader>

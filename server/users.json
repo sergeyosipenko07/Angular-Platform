@@ -2,46 +2,51 @@
   {
     "id": 1,
     "name": "Sergey",
+    "age": "21",
     "password": "qwerty",
     "dateOfBirth": "1997-10-07T21:00:00.000Z",
-    "dateOfFirstLogin": "2018-10-09T21:00:00.000Z",
-    "dateOfNextNotification": "2018-10-09T21:00:00.000Z",
-    "information": "null"
+    "dateOfLogin": "2018-10-09T21:00:00.000Z",
+    "dateOfNotification": "2019-10-09T21:00:00.000Z",
+    "information": "Developer"
   },
   {
     "id": 2,
     "name": "Andrey",
+    "age": "27",
     "password": "qwerty",
     "dateOfBirth": "1997-10-09T21:00:00.000Z",
-    "dateOfFirstLogin": "2018-10-09T21:00:00.000Z",
-    "dateOfNextNotification": "2018-10-09T21:00:00.000Z",
-    "information": "null"
+    "dateOfLogin": "2018-10-09T21:00:00.000Z",
+    "dateOfNotification": "2019-10-09T21:00:00.000Z",
+    "information": "no"
   },
   {
     "id": 3,
     "name": "Alexey",
+    "age": "23",
     "password": "qwerty",
     "dateOfBirth": "1997-10-07T21:00:00.000Z",
-    "dateOfFirstLogin": "2018-10-09T21:00:00.000Z",
-    "dateOfNextNotification": "2018-10-09T21:00:00.000Z",
-    "information": "null"
+    "dateOfLogin": "2018-10-09T21:00:00.000Z",
+    "dateOfNotification": "2019-10-09T21:00:00.000Z",
+    "information": "no"
   },
   {
     "id": 4,
     "name": "Nikita",
+    "age": "21",
     "password": "qwerty",
     "date of birth": "1997-10-07T21:00:00.000Z",
-    "dateOfFirstLogin": "2018-10-09T21:00:00.000Z",
-    "dateOfNextNotification": "2018-10-09T21:00:00.000Z",
-    "information": "null"
+    "dateOfLogin": "2018-10-09T21:00:00.000Z",
+    "dateOfNotification": "2019-10-09T21:00:00.000Z",
+    "information": "no"
   },
   {
     "id": 5,
     "name": "Petr",
+    "age": "20",
     "password": "qwerty",
     "dateOfBirth": "1997-10-07T21:00:00.000Z7",
-    "dateOfFirstLogin": "2018-10-09T21:00:00.000Z",
-    "dateOfNextNotification": "2018-10-09T21:00:00.000Z",
-    "information": "null"
+    "dateOfLogin": "2018-10-09T21:00:00.000Z",
+    "dateOfNotification": "2019-10-09T21:00:00.000Z",
+    "information": "no"
   }
 ]

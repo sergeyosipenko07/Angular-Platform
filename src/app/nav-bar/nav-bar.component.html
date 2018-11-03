@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <h1 class="navbar-brand">{{'Hi' | translate}}, {{user.name}}!</h1>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item"
+          routerLinkActive="active"
+      routerLinkActiveOptions="exact: true">
+        <a class="nav-link" routerLink='/info'>
+          {{'User Info' | translate}}
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink='/edit'>
+          {{'Edit Info' | translate}}
+        </a>
+      </li>
+    </ul>
+    <div class="selectLanguage">
+      <mat-form-field>
+        <select matNativeControl class="selectForm" (change)="switchLanguage($event)">
+          <option value="en">{{'English' | translate}}</option>
+          <option value="ru">{{'Russian' | translate}}</option>
+        </select>
+      </mat-form-field>
+    </div>
+    <button mat-stroked-button color="warn"
+            ngClass="logOutBtn my-2 my-sm-0"
+            (click)="logout()">{{'Log Out' | translate}}
+    </button>
+  </div>
+</nav>

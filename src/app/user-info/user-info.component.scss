@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Old+Standard+TT:400,700');
+
+.enteredInfoBox {
+  font-family: 'Old Standard TT', serif;
+  width: 380px;
+  margin: 100px auto;
+  padding: 10px 30px 30px 30px;
+  background: #fafafa;
+  border: 1px solid #ebebeb;
+  box-shadow: 0px 0px 20px 2px rgba(103,58,183,0.55);
+}
+
+.header {
+  font-weight: 700;
+  text-align: center;
+}
+
+.infoBox {
+  margin-top: 20px;
+}
+
+.labelField {
+  font-size: 18px;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.valueField {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.inputName {
+  text-transform: capitalize;
+}

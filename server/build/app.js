@@ -1,12 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
+const cors = require("cors");
 const app = express();
+app.use(cors());
 const users = require('../users.json');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const port = 8000;
+app.listen(port, function () {
+    console.log(`Server successfully started on ${port} port`);
+});
 app.get('/', (req, res) => {
     res.send('Hello API');
 });
@@ -22,25 +27,32 @@ app.post('/users/add', (req, res) => {
         id: 1,
         name: req.body.name,
         password: req.body.password,
-        dateOfBirth: new Date(req.body.dateOfBirth),
-        dateOfFirstLogin: new Date(),
-        dateOfNextNotification: new Date(req.body.dateOfNextNotification),
+        age: req.body.age,
+        dateOfBirth: req.body.dateOfBirth,
+        dateOfLogin: req.body.dateOfLogin,
+        dateOfNotification: req.body.dateOfNotification,
         information: req.body.information
     };
     users.push(user);
     res.send(user);
 });
 app.put('/users/:id', (req, res) => {
+    console.log(req.body);
     const user = users.find(user => user.id === Number(req.params.id));
     if (user) {
         user.name = req.body.name ? req.body.name : user.name;
         user.password = req.body.password ? req.body.password : user.password;
-        res.sendStatus(200);
+        user.age = req.body.age ? req.body.age : user.age;
+        user.dateOfBirth = req.body.dateOfBirth ? new Date(req.body.dateOfBirth).toISOString() : user.dateOfBirth;
+        user.dateOfLogin = req.body.dateOfLogin ? new Date(req.body.dateOfLogin).toISOString() : user.dateOfLogin;
+        user.dateOfNotification = req.body.dateOfNotification ? new Date(req.body.dateOfNotification).toISOString() : user.dateOfNotification;
+        user.information = req.body.information ? req.body.information : user.information;
+        res.send(user);
     }
     res.sendStatus(404);
 });
 app.delete('/users/:id', (req, res) => {
-    const tmpUser = users.find((user) => user.id != req.params.id);
+    const tmpUser = users.find((user) => user.id === req.params.id);
     if (tmpUser) {
         const userIndex = users.indexOf(tmpUser);
         users.splice(userIndex, 1);
@@ -48,7 +60,29 @@ app.delete('/users/:id', (req, res) => {
     }
     res.sendStatus(404);
 });
-app.listen(port, function () {
-    console.log(`Server successfully started on ${port} port`);
+app.post('/login', (req, res) => {
+    if (req.body) {
+        const user = findUserByNamePassword(req.body.name, req.body.password);
+        console.log(user);
+        setTimeout(() => {
+            res.send(user);
+        }, 3000);
+    }
 });
+app.post('/password', (req, res) => {
+    if (req.body) {
+        const user = findUserByName(req.body.name);
+        console.log(user);
+        if (user) {
+            res.send(user);
+        }
+    }
+    res.sendStatus(400);
+});
+function findUserByNamePassword(name, password) {
+    return users.find((user) => user.name === name && user.password === password);
+}
+function findUserByName(name) {
+    return users.find((user) => user.name === name);
+}
 //# sourceMappingURL=app.js.map
