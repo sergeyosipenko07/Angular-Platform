@@ -10,8 +10,8 @@ const routes: Routes = [
   {path: 'login', component: LoginFormComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'password', component: ForgotPasswordComponent},
-  {path: 'info', component: UserInfoComponent},
-  {path: 'edit', component: EditFormComponent}
+  {path: 'info', component: UserInfoComponent, canActivate: [LoginGuard]},
+  {path: 'edit', component: EditFormComponent, canActivate: [LoginGuard]}
 ];
 
 @NgModule({
