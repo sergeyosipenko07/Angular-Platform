@@ -4,7 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import usernameValidator from '../Validators/usernameValidator';
 import toUpperCase from '../shared/toUpperCase';
 import { AuthService } from '../shared/services/auth.service';
-import { User } from '../shared/models/user.model';
+import { User } from '../user-list/user-service.interface';
 
 @Component({
   selector: 'app-forgot-password',

@@ -1,0 +1,19 @@
+.search-btn span {
+  font-size: 30px;
+}
+
+.search-btn-container {
+  text-align: center;
+  background-color: #F8F6FC;
+  border: 0;
+  cursor: pointer;
+  min-width: 5rem;
+}
+
+.search-btn-container:hover {
+  background-color: #EBE5F6;
+}
+
+.search-btn-active {
+  background-color: #D1C3E9;
+}

@@ -21,6 +21,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { UserInfoComponent } from './user-info/user-info.component';
 import { AuthService } from './shared/services/auth.service';
 import { LoaderComponent } from './loader/loader.component';
+import { UserListModule } from './user-list/user-list.module';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -57,7 +58,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    UserListModule
   ],
   providers: [
     UsersService,

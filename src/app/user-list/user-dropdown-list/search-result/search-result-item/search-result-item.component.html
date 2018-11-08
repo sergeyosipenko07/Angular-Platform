@@ -1,0 +1,30 @@
+<div class="d-flex flex-row item p-2" (click)="selectUser($event)">
+  <div class="first-col w-50">
+    <div>
+      <span ngClass="labelField">{{'Name' | translate}}:</span>
+      <span ngClass="valueField text-primary text-primary">{{user.name}}</span>
+    </div>
+    <div>
+      <span ngClass="labelField">{{'Age' | translate}}:</span>
+      <span ngClass="valueField text-primary">{{user.age}}</span>
+    </div>
+    <div>
+      <span ngClass="labelField">{{'Date of birthday' | translate}}:</span>
+      <span ngClass="valueField text-primary">{{user.dateOfBirth}}</span>
+    </div>
+    <div>
+      <span ngClass="labelField">{{'Information' | translate}}:</span>
+      <span ngClass="valueField text-primary">{{user.information}}</span>
+    </div>
+  </div>
+  <div class="align-self-center ml-4">
+    <div>
+      <span ngClass="labelField">{{'Date of login' | translate}}:</span>
+      <span ngClass="valueField text-primary">{{user.dateOfLogin}}</span>
+    </div>
+    <div>
+      <span ngClass="labelField">{{'Date of notification' | translate}}:</span>
+      <span ngClass="valueField text-primary">{{user.dateOfNotification}}</span>
+    </div>
+  </div>
+</div>

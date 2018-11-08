@@ -1,0 +1,6 @@
+<div class="search-results-container">
+  <app-search-result-item *ngFor="let user of users"
+                          [user]="user"
+                          (onSelectedUser)="selectedUser($event)">
+  </app-search-result-item>
+</div>

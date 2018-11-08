@@ -1,0 +1,32 @@
+<div
+     class="d-flex flex-row flex-grow-1 currentUser-chosen p-2">
+  <div *ngIf="this.currentUser !== undefined && this.currentUser !== null; else pleaseSelectcurrentUser" class="d-flex flex-grow-1">
+    <div class="first-col w-50">
+      <div class="ellipsis">
+        <span ngClass="labelField">{{'Name' | translate}}:</span>
+        <span ngClass="valueField text-primary">{{this.currentUser.name}}</span>
+      </div>
+      <div>
+        <span ngClass="labelField">{{'Age' | translate}}:</span>
+        <span ngClass="valueField text-primary">{{this.currentUser.age}}</span>
+      </div>
+      <div class="ellipsis">
+        <span ngClass="labelField">{{'Information' | translate}}:</span>
+        <span ngClass="valueField text-primary">{{this.currentUser.information}}</span>
+      </div>
+    </div>
+    <div class="align-self-center ml-4">
+      <span ngClass="labelField">{{'Date of birthday' | translate}}:</span>
+      <span ngClass="valueField text-primary">{{this.currentUser.dateOfBirth}}</span>
+    </div>
+  </div>
+
+  <ng-template #pleaseSelectcurrentUser>
+    <div class="d-flex flex-grow-1 align-items-center justify-content-center">
+      <h3 class="lead">
+        <span ngClass="selectUser">{{'Please select user' | translate}}</span>
+        <span class="arrow">&#x02192;</span>
+      </h3>
+    </div>
+  </ng-template>
+</div>

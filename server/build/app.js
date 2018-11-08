@@ -79,6 +79,17 @@ app.post('/password', (req, res) => {
     }
     res.sendStatus(400);
 });
+app.post('/users-search', (req, res) => {
+    if (req.body !== '') {
+        console.log(req.body);
+        const filteredUsers = users.filter((user) => {
+            return (user.name.toLowerCase()).includes(req.body.name.toLowerCase());
+        });
+        console.log(filteredUsers);
+        res.send(filteredUsers);
+    }
+    res.send(users);
+});
 function findUserByNamePassword(name, password) {
     return users.find((user) => user.name === name && user.password === password);
 }

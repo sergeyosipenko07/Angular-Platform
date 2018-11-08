@@ -1,0 +1,7 @@
+<div class="d-flex flex-column">
+  <div class="d-flex flex-row shadow">
+    <app-search-field class="d-flex flex-grow-1" (keydown)="searchOnEnter($event)"></app-search-field>
+    <app-search-btn class="d-flex align-self-stretch" (click)="search()"></app-search-btn>
+  </div>
+  <app-search-result (onSelectedUser)="onSelectUser($event)" [users]="users"></app-search-result>
+</div>

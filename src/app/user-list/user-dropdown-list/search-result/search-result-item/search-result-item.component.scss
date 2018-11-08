@@ -1,0 +1,26 @@
+.item {
+  font-family: 'Old Standard TT', serif;
+  border: 0;
+  background-color: white;
+  border-bottom: 1px solid #ebebeb;
+  cursor: pointer;
+}
+
+.first-col {
+  min-width: 50%;
+}
+
+.item:hover {
+  background-color: #F3F3F3;
+}
+
+.labelField {
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.valueField {
+  font-size: 14px;
+  font-weight: 400;
+}

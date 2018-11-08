@@ -1,0 +1,27 @@
+<div class="row justify-content-center main">
+  <div class="col-6">
+    <div class="wrapper panel-shadow">
+      <div class="chosen panel-shadow disable-user-select w-100">
+        <div class="d-flex flex-row">
+          <app-user-chosen
+            class="d-flex align-self-stretch flex-grow-1"
+            [currentUser]="currentUser">
+          </app-user-chosen>
+          <app-user-list-badge
+            class="d-flex align-self-stretch"
+            [(isDropdownHidden)]="isDropdownHidden"
+            (click)="closeDropdown()"
+            (click)="getUsers()">
+          </app-user-list-badge>
+        </div>
+      </div>
+      <div class="options panel-shadow {{isDropdownHidden ? 'hide' : 'show'}}">
+        <app-user-dropdown-list [(isDropdownHidden)]="isDropdownHidden"
+                                [(selectedUser)]="currentUser"
+                                [users]="users">
+
+        </app-user-dropdown-list>
+      </div>
+    </div>
+  </div>
+</div>

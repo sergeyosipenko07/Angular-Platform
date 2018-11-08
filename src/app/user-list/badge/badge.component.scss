@@ -1,0 +1,19 @@
+.badge span {
+  font-size: 25px;
+}
+
+.badge-container {
+  text-align: center;
+  border: 0;
+  cursor: pointer;
+  min-width: 5rem;
+  background-color: #F8F6FC;
+}
+
+.badge-container:hover {
+  background-color: #EBE5F6;
+}
+
+.badge-active {
+  background-color: #D1C3E9;
+}

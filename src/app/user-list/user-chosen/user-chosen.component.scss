@@ -1,0 +1,42 @@
+.user-chosen {
+  font-family: 'Old Standard TT', serif;
+  border: 0;
+  min-height: 5.5rem;
+}
+
+.ellipsis {
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.labelField {
+  font-family: 'Old Standard TT', serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.valueField {
+  font-family: 'Old Standard TT', serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.selectUser {
+  font-family: 'Old Standard TT', serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.first-col {
+  min-width: 40%;
+  padding: 10px;
+}
+
+.arrow{
+  font-size: 28px;
+  font-weight: 700;
+  margin-left: 15px;
+}

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import {Component} from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
 
 
 @Component({
@@ -8,8 +8,17 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent  {
+export class AppComponent {
+
   constructor(private translate: TranslateService) {
     translate.setDefaultLang('en');
+  }
+
+  check = 0;
+
+  checkLogin() {
+    if (localStorage.getItem('user')) {
+      return this.check = 1;
+    }
   }
 }
