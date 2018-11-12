@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { User } from '../../user-list/user-service.interface';
+import {User, UserRequirements} from '../../user-list/user-service.interface';
 
 @Injectable()
 export class AuthService {
@@ -12,8 +12,9 @@ export class AuthService {
     private router: Router
   ) {}
 
-  login(userLogin): Observable<{}> {
-    const {name, password} = userLogin;
+  login(userRequirements: UserRequirements): Observable<{}> {
+    const {name, password} = userRequirements;
+    console.log(userRequirements);
     return this.http.post<{}>(`${this.urlApi}/login`, {
       name,
       password

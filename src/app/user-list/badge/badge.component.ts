@@ -7,8 +7,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class BadgeComponent implements OnInit {
 
-  @Input() isDropdownHidden = true;
-  @Output() isDropdownHiddenChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Input() Dropdown = true;
+  @Output() DropdownChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() {}
 
@@ -16,7 +16,7 @@ export class BadgeComponent implements OnInit {
   }
 
   toggle() {
-    this.isDropdownHiddenChange.emit(!this.isDropdownHidden);
+    this.DropdownChange.emit(!this.Dropdown);
   }
 
 }

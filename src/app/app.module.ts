@@ -22,6 +22,11 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { AuthService } from './shared/services/auth.service';
 import { LoaderComponent } from './loader/loader.component';
 import { UserListModule } from './user-list/user-list.module';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {dataReducers, sessionReducers} from './redux/reducers/index';
+import {EffectsModule} from '@ngrx/effects';
+import {UserEffects} from './redux/effects/user.effects';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -41,6 +46,9 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    EffectsModule.forRoot([
+      UserEffects
+    ]),
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
@@ -59,7 +67,11 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    UserListModule
+    UserListModule,
+    StoreModule.forRoot({}),
+    StoreModule.forFeature('Data', dataReducers),
+    StoreModule.forFeature('Session', sessionReducers),
+    StoreDevtoolsModule.instrument(),
   ],
   providers: [
     UsersService,

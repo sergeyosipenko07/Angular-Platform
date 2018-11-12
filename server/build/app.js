@@ -61,6 +61,7 @@ app.delete('/users/:id', (req, res) => {
     res.sendStatus(404);
 });
 app.post('/login', (req, res) => {
+    console.log(req.body);
     if (req.body) {
         const user = findUserByNamePassword(req.body.name, req.body.password);
         console.log(user);

@@ -11,8 +11,9 @@ import {User} from '../user-service.interface';
 export class UserDropdownListComponent implements OnInit {
   @Input() users: User[];
   @Input() selectedUser: User;
-  @Input() isDropdownHidden = true;
+  @Input() Dropdown = true;
   @Output() selectedUserChange: EventEmitter<User> = new EventEmitter<User>();
+  @Output() DropdownChange: EventEmitter<boolean> = new EventEmitter<boolean>();
   @ViewChild(SearchFieldComponent)
   searchFieldComponent = SearchFieldComponent;
   constructor(
@@ -41,5 +42,6 @@ export class UserDropdownListComponent implements OnInit {
 
   onSelectUser(user: User) {
     this.selectedUserChange.emit(user);
+    this.DropdownChange.emit(this.Dropdown);
   }
 }

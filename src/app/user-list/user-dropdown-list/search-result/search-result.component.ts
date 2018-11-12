@@ -9,7 +9,9 @@ import { User } from '../../user-service.interface';
 
 export class SearchResultComponent implements OnInit {
   @Input() users: User;
+  @Input() Dropdown = true;
   @Output() onSelectedUser: EventEmitter<User> = new EventEmitter<User>();
+  @Output() DropdownChange: EventEmitter<boolean> = new EventEmitter<boolean>();
   constructor() {}
 
   ngOnInit() {
@@ -17,5 +19,6 @@ export class SearchResultComponent implements OnInit {
 
   selectedUser(user: User) {
     this.onSelectedUser.emit(user);
+    this.DropdownChange.emit(!this.Dropdown);
   }
 }

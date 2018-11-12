@@ -18,3 +18,8 @@ export interface UserServiceInterface {
 
   getUsersByName(name: string): User[];
 }
+
+export interface UserRequirements {
+  name: string;
+  password: string;
+}

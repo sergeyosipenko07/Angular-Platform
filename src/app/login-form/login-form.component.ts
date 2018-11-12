@@ -1,13 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import {Component, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
+import {Store} from '@ngrx/store';
 
-import { UsersService } from '../shared/services/users.service';
-import { AuthService } from '../shared/services/auth.service';
+import {UsersService} from '../shared/services/users.service';
+import {AuthService} from '../shared/services/auth.service';
 import usernameValidator from '../Validators/usernameValidator';
 import toUpperCase from '../shared/toUpperCase';
+import {SessionState} from '../redux/reducers';
+import {User, UserRequirements} from '../user-list/user-service.interface';
+import {LoginUser} from '../redux/actions/user.actions';
+
+
+export enum STATUS {
+  UNAUTHORIZED = 401,
+}
 
 @Component({
   selector: 'app-login-form',
@@ -15,20 +24,19 @@ import toUpperCase from '../shared/toUpperCase';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-  public formValues = {
-    name: '',
-    password: ''
-  };
   public loginForm: FormGroup;
-  public validForm = false;
   private isLoading: boolean;
+
   constructor(
     private translate: TranslateService,
     private router: Router,
     private http: HttpClient,
     private userService: UsersService,
     private authService: AuthService,
-  ) {}
+    private sessionStore: Store<SessionState>
+  ) {
+  }
+
   switchLanguage(event) {
     this.translate.use(event.target.value);
   }
@@ -41,21 +49,16 @@ export class LoginFormComponent implements OnInit {
   }
 
   submitForm() {
-    this.validForm = this.loginForm.valid;
-    if (this.validForm) {
+    const form = this.loginForm.value;
+    if (form.name && form.password) {
+/*
       this.isLoading = true;
-      this.formValues.name = toUpperCase(this.loginForm.value.name);
-      this.formValues.password = this.loginForm.value.password;
-      this.authService.login(this.formValues)
-        .subscribe((user) => {
-          if (user) {
-            console.log(user);
-            localStorage.setItem('user', JSON.stringify(user));
-            this.router.navigate(['/info']);
-          } else {
-            alert('Incorrect Name or Password. Please press F5 button and refresh the page.');
-          }
-        });
+*/
+      const userCredentials: UserRequirements = {
+        name: toUpperCase(form.name),
+        password: form.password
+      };
+      this.sessionStore.dispatch(new LoginUser(userCredentials));
     }
   }
 }

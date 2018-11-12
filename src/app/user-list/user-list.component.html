@@ -9,16 +9,15 @@
           </app-user-chosen>
           <app-user-list-badge
             class="d-flex align-self-stretch"
-            [(isDropdownHidden)]="isDropdownHidden"
-            (click)="closeDropdown()"
-            (click)="getUsers()">
+            (click)="getUsers()"
+            [(Dropdown)]="Dropdown">
           </app-user-list-badge>
         </div>
       </div>
-      <div class="options panel-shadow {{isDropdownHidden ? 'hide' : 'show'}}">
-        <app-user-dropdown-list [(isDropdownHidden)]="isDropdownHidden"
-                                [(selectedUser)]="currentUser"
-                                [users]="users">
+      <div class="options panel-shadow {{Dropdown ? 'hide' : 'show'}}">
+        <app-user-dropdown-list [(selectedUser)]="currentUser"
+                                [users]="users"
+                                [(Dropdown)]="Dropdown">
 
         </app-user-dropdown-list>
       </div>

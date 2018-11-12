@@ -11,9 +11,8 @@ export class UserListComponent implements OnInit {
   users: User[];
   public currentUser: User;
 
-  @Input() isDropdownHidden = true;
-  @Output() isDropdownHiddenChange: EventEmitter<boolean> = new EventEmitter<boolean>();
-
+  @Input() Dropdown = true;
+  @Output() DropdownChange: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSelectedUser: EventEmitter<User> = new EventEmitter<User>();
 
   constructor(
@@ -25,15 +24,14 @@ export class UserListComponent implements OnInit {
   }
 
   closeDropdown() {
-    this.isDropdownHiddenChange.emit(!this.isDropdownHidden);
+    this.DropdownChange.emit(this.Dropdown);
   }
 
   getUsers() {
-    if (!this.isDropdownHidden) {
+    if (!this.Dropdown) {
       this.userListService.getUsers()
         .subscribe((users: User[]) => {
           this.users = users;
-          console.log(this.users);
         });
     }
   }

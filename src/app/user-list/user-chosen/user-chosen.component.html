@@ -1,6 +1,7 @@
 <div
      class="d-flex flex-row flex-grow-1 currentUser-chosen p-2">
-  <div *ngIf="this.currentUser !== undefined && this.currentUser !== null; else pleaseSelectcurrentUser" class="d-flex flex-grow-1">
+  <div *ngIf="this.currentUser !== undefined && this.currentUser !== null;
+   else pleaseSelectcurrentUser" class="d-flex flex-grow-1">
     <div class="first-col w-50">
       <div class="ellipsis">
         <span ngClass="labelField">{{'Name' | translate}}:</span>

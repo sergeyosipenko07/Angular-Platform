@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 import toUpperCase from '../shared/toUpperCase';
 import * as moment from 'moment';
+import {User} from '../user-list/user-service.interface';
+import {Observable} from 'rxjs';
 
 interface ForFormValues {
   name: string;
@@ -19,6 +21,8 @@ interface ForFormValues {
   styleUrls: ['./user-info.component.scss']
 })
 export class UserInfoComponent implements OnInit {
+  @Input()
+  currentUser$!: Observable<User>;
 
   public formValues: ForFormValues = {
     name: '',
